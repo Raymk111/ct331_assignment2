@@ -20,7 +20,7 @@
 
 ;Begin test functions
 (define (test_ins_beg1)
-  (eq? (ins_beg 1 '(2 3 4)) '(1 2 3 4)))
+  (equal? (ins_beg 1 '(2 3 4)) '(1 2 3 4)))
 
 ;End test functions
 
