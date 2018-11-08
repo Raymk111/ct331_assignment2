@@ -69,7 +69,7 @@
     [else
      (cond
        [(empty? (car tree)) (append (list (list '() num '())) (cdr tree))]
-       [else (list (insert_comp (car tree) num) (cadr tree) (caddr tree) comparator)]
+       [else (list (insert_comp (car tree) num comparator) (cadr tree) (caddr tree))]
        )
      ]
     )
@@ -82,4 +82,12 @@
       (insert_comp_list (insert_comp tree (car lst) comparator) (cdr lst) comparator)]
     [else (display "error with tree construction list must not be nested")]
   )
+  )
+
+(define (compLastEl num1 num2)
+  (> (getLastNum num1) (getLastNum num2))
+  )
+
+(define (getLastNum num)
+  (- num (* (quotient num 10) 10))
   )
