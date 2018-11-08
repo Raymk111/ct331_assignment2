@@ -14,19 +14,20 @@
 (provide ins_beg)
 ;A.
 (define (ins_beg el1 list1)
-  (display "Hello, I'm ins_beg!\n")
   (cons el1 list1)
 )
+
+(provide ins_end)
 ;B.
 (define (ins_end el1 list1)
-  (display "Hello, I'm ins_end!\n")
   (append list1 (cons el1 empty))
 )
 
+(provide count_top_level)
 ;C.
 (define (count_top_level list1 length)
   (if (empty? list1)
-      (display length)
+      length
 
       (begin
         (set! length ((lambda (length) (+ length 1)) length))
@@ -36,6 +37,7 @@
       )
 )
 
+(provide count_occurence)
 ;D.
 (define (count_occurence list1 num)
   (cond
@@ -45,6 +47,7 @@
       )
 )
 
+(provide count_occurence1)
 ;E
 (define (count_occurence1 list1 num count)
   (cond
@@ -58,17 +61,16 @@
       )
 )
 
+(provide count_instance_deep)
 ;F
-(define (count_instance_deep list1 num count)
+(define (count_instance_deep list1 num)
   (cond
-    [(empty? list1) count]
-    [(list? (car list1)) (begin (+ (count_instance_deep (car list1) num count) (count_instance_deep (cdr list1) num count))
+    [(empty? list1) 0]
+    [(and (list? (car list1))) (+ (count_instance_deep (car list1) num)
+               (count_instance_deep (cdr list1) num)
                                 )]
-    [(= num (car list1)) (begin
-                           (set! count ((lambda (count) (+ count 1)) count))
-                           (count_occurence1 (cdr list1) num count)
-                           )
-                         ]
-    [(not (= num (car list1))) (count_occurence1 (cdr list1) num count)]
+    [(= num (car list1)) (+ 1
+                           (count_instance_deep (cdr list1) num))]
+    [(not (= num (car list1))) (+ 0 (count_instance_deep (cdr list1) num))]
       )
 )
