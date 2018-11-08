@@ -32,7 +32,7 @@
   (equal? (ins_end 1 '(2 3 4)) '(2 3 4 1)))
 
 (define (test_count_top_level)
-  (equal? (count_top_level (list 1 (list 2 (list 0 5) 3 4)) 0) 5))
+  (equal? (count_top_level (list 1 (list 2 (list 0 5) 3 4) 0) 0 ) 1))
 
 (define (test_count_occurence)
   (equal? (count_occurence (list 1 2 5 4 5 3 5) 5) 3))

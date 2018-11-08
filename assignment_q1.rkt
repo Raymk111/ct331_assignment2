@@ -9,7 +9,9 @@
 
 (append '("MUP") '(70) '((1 2 3)))
 
-;cons is for constructing paris of elements in either a dotted or proper list
+;PART B:
+
+;cons is for constructing pairs of elements in either a dotted or proper list
 ;to construct a proper list with cons the last element must be paired with empty or '()
 
 ;append on the other hand only takes lists and concatenates their top level elements to one list

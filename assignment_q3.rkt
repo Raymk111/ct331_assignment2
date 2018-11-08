@@ -7,6 +7,7 @@
   (cond [(not (empty? (cadr tree))) (display (cadr tree))])
   (cond [(not (empty? (caddr tree))) (traverse (caddr tree))])
   )
+(traverse bst)
 
 (define (contains tree num)
   (cond

@@ -25,14 +25,14 @@
 
 (provide count_top_level)
 ;C.
-(define (count_top_level list1 length)
+(define (count_top_level list1 occur)
   (if (empty? list1)
-      length
+      occur
 
       (begin
-        (set! length ((lambda (length) (+ length 1)) length))
+        (set! occur ((lambda (occur) (+ occur 1)) occur))
         (set! list1 ((lambda (list1) (cdr list1)) list1))
-        (count_top_level list1 length )
+        (count_top_level list1 occur )
       )
       )
 )
